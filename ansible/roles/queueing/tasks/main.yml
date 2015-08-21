@@ -22,5 +22,5 @@
     service: name=supervisor enabled=yes state=started
 
   - name: Have supervisorctl start the queue program
-    supervisorctl: name=queue state=present config=/etc/supervisor/conf.d/queue.conf
+    supervisorctl: name=queue state=present config=/etc/supervisor/supervisord.conf
 
