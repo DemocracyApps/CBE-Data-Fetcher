@@ -1,0 +1,6 @@
+app_name: "drs"
+fs_user: "vagrant"
+db_users: ["drs_user", "vagrant"]
+db_password: "default_drs_password"
+db_list: ["drs"]
+

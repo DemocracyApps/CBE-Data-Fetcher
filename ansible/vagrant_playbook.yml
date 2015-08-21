@@ -1,0 +1,20 @@
+---
+- hosts: all
+  sudo: true
+
+  vars_files:
+    - vagrant_variables.yml
+
+  vars:
+    document_base: /var/www/{{ app_name }}/{{ app_name }}
+
+  pre_tasks:
+
+  - name: update apt cache
+    apt: update_cache=yes
+
+  roles:
+    - common
+    - webserver
+    - laravel
+    - database

@@ -1,0 +1,8 @@
+---
+
+  - name: install git and curl
+    apt: name={{ item }} state=present
+    with_items:
+      - git-core
+      - curl
+      - python-psycopg2

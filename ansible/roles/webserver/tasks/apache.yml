@@ -1,0 +1,30 @@
+---
+
+  - name: install apache
+    apt: name={{ item }} state=present
+    with_items:
+      - apache2
+      - libapache2-mod-php5
+
+  - name: enable apache mod-rewrite
+    shell: a2enmod rewrite
+    args:
+      creates: /etc/apache2/mods-enabled/rewrite.load
+
+  - name: disable the default apache site
+    shell: a2dissite 000-default
+    args:
+      removes: /etc/apache2/sites-enabled/000-default.conf
+
+  - name: Copy across new virtual host
+    template:
+      src=app.conf.j2
+      dest=/etc/apache2/sites-available/{{app_name}}.conf
+
+  - name: enable the application apache site
+    shell: a2ensite {{app_name}}
+    args:
+      creates: /etc/apache2/sites-enabled/{{app_name}}.conf
+
+  - name: reload apache
+    service: name=apache2 state=reloaded
