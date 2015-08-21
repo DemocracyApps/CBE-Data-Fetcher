@@ -18,3 +18,6 @@
     - webserver
     - laravel
     - database
+    - queueing
+
+
