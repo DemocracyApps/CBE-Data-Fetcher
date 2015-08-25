@@ -12,7 +12,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+      'App\Console\Commands\Fetch',
+      'App\Console\Commands\Create'
     ];
 
     /**
@@ -23,6 +24,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        //
+        $schedule->command('drs:fetch')->everyThirtyMinutes()->withoutOverlapping();
     }
 }

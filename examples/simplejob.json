@@ -1,0 +1,6 @@
+{
+  "url": "ftp://ftp.ashevillenc.gov/ITSDept/GIS/ODD_DATA/invoice.csv",
+  "fetcher": "SimpleCSVFile",
+  "frequency":"Hour",
+  "count":2
+}
